@@ -36,7 +36,7 @@ import br.com.muriloao.b2w_test.services.IPlanetService;
 @RestController()
 @RequestMapping(
         value = {"/planets"},
-        consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {"application/hal+json"}
+        consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE}
 )
 @ResponseBody
 public class PlanetController {

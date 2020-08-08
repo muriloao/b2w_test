@@ -7,6 +7,7 @@ package br.com.muriloao.b2w_test.entities;
 
 import br.com.muriloao.b2w_test.controllers.PlanetController;
 import br.com.muriloao.b2w_test.dto.PlanetDto;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -29,6 +30,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 @AllArgsConstructor
 public class Planet implements IEntity<PlanetDto> {
 
+    @ApiModelProperty(value = "ID autogerado do planeta")
     @Id
     private String id;
 
