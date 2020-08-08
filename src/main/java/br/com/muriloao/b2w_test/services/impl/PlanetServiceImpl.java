@@ -9,19 +9,19 @@ import br.com.muriloao.b2w_test.entities.Planet;
 import br.com.muriloao.b2w_test.repositories.PlanetRepository;
 import java.util.List;
 import java.util.Optional;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import br.com.muriloao.b2w_test.services.IPlanetService;
+import lombok.AllArgsConstructor;
 
 /**
  *
  * @author Murilo Oliveira
  */
 @Service
+@AllArgsConstructor
 public class PlanetServiceImpl implements IPlanetService {
 
-    @Autowired
-    private PlanetRepository repository;
+    private final PlanetRepository repository;
 
     @Override
     public List<Planet> findAll() {

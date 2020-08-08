@@ -14,7 +14,5 @@ import org.springframework.http.ResponseEntity;
  */
 public interface ISwapiService {
 
-    final String URL = "https://swapi.dev/api";
-
     public ResponseEntity<SwapiPlanetDto> findPlanetById(String id);
 }

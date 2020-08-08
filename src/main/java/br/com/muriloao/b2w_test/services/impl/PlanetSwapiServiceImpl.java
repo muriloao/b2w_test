@@ -7,7 +7,8 @@ package br.com.muriloao.b2w_test.services.impl;
 
 import br.com.muriloao.b2w_test.dto.SwapiPlanetDto;
 import br.com.muriloao.b2w_test.services.ISwapiService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -17,15 +18,19 @@ import org.springframework.web.client.RestTemplate;
  * @author Murilo Oliveira
  */
 @Service
+@AllArgsConstructor
 public class PlanetSwapiServiceImpl implements ISwapiService {
 
-    final String URI = "/planets";
+    final String URL = "https://swapi.dev/api/planets/";
 
-    @Autowired
-    private RestTemplate restTemplate;
+    private final RestTemplate restTemplate;
+
+    public PlanetSwapiServiceImpl() {
+        this.restTemplate = new RestTemplateBuilder().defaultHeader("Content-Type", "application/json").build();
+    }
 
     @Override
     public ResponseEntity<SwapiPlanetDto> findPlanetById(String id) {
-        return this.restTemplate.getForEntity(this.URL + this.URI + "/" + id + "/", SwapiPlanetDto.class);
+        return this.restTemplate.getForEntity(this.URL + id + "/", SwapiPlanetDto.class);
     }
 }
