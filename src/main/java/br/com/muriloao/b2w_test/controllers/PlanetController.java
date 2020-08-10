@@ -88,7 +88,7 @@ public class PlanetController {
                 : ResponsePayload.message(HttpStatus.NOT_FOUND.value(), "Planet with id " + planet.getSwapiId() + " does not exist");
     }
 
-    @DeleteMapping("/{id]")
+    @DeleteMapping("/{id}")
     public ResponseEntity delete(@PathVariable(required = true) String id) {
         this.planetService.deleteById(id);
         return ResponseEntity.ok().build();
